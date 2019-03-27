@@ -2,14 +2,6 @@ public abstract class VeldObject {
 
 	private int rij;
 	private int kolom;
-	private Type type;
-
-	public enum Type {
-		SLEUTEL,
-		SPELER,
-		BARRICADE,
-		MUUR
-	}
 
 	public VeldObject(int rij, int kolom) {
 		this.rij = rij;
@@ -29,11 +21,5 @@ public abstract class VeldObject {
 		this.kolom = kolom;
 	}
 
-	public Type getType() {
-		return type;
-	}
-
-	public void setType(Type type) {
-		this.type = type;
-	}
+	public abstract boolean padVrij();
 }
