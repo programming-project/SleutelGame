@@ -7,7 +7,7 @@ public class Level {
 	private int[][] sleutelHonderd;
 	private int[][] sleutelTweeHonderd;
 	private int[][] sleutelDrieHonderd;
-	private GameObject startPositie;
+	private VeldObject startPositie;
 	private Finish finish;
 
 	public Level(int level) {

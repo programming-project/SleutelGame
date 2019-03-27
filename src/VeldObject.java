@@ -1,4 +1,4 @@
-public abstract class GameObject {
+public abstract class VeldObject {
 
 	private int rij;
 	private int kolom;
@@ -11,7 +11,7 @@ public abstract class GameObject {
 		MUUR
 	}
 
-	public GameObject(int rij, int kolom) {
+	public VeldObject(int rij, int kolom) {
 		this.rij = rij;
 		this.kolom = kolom;
 	}

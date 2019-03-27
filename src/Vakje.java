@@ -1,11 +1,11 @@
 public class Vakje {
 
-	private GameObject gameObject;
+	private VeldObject veldObject;
 	private int rij;
 	private int kolom;
 
-	public void setGameObject(GameObject gameObject) {
-		this.gameObject = gameObject;
+	public void setVeldObject(VeldObject veldObject) {
+		this.veldObject = veldObject;
 	}
 
 	public void setPositie(int rij, int kolom) {

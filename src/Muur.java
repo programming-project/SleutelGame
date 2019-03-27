@@ -1,4 +1,4 @@
-public class Muur extends GameObject {
+public class Muur extends VeldObject {
 
 	public Muur(int rij, int kolom) {
 	}

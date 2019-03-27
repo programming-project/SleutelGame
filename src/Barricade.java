@@ -1,4 +1,4 @@
-public class Barricade extends GameObject {
+public class Barricade extends VeldObject {
 
 	private int sleutelNummer;
 

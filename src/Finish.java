@@ -1,4 +1,4 @@
-public class Finish extends GameObject {
+public class Finish extends VeldObject {
 
 	public void spelGewonnen() {
 	}

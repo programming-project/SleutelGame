@@ -1,4 +1,4 @@
-public class Sleutel extends GameObject {
+public class Sleutel extends VeldObject {
 
 	private int sleutelNummer;
 

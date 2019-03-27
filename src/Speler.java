@@ -1,4 +1,4 @@
-public class Speler extends GameObject {
+public class Speler extends VeldObject {
 
 	private Sleutel zak;
 
