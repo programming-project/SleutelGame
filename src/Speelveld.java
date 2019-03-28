@@ -10,7 +10,7 @@ public class Speelveld extends JPanel {
 	private JMenu jMenuReset;
 	private JMenu jMenuAfsluiten;
 
-	public JPanel veldGrid = new JPanel(new GridLayout(1, 3));
+	public JPanel veldGrid = new JPanel(new GridLayout(10, 10));
 
 	public Speelveld() {
 		super.setLayout(new BorderLayout());
@@ -44,7 +44,6 @@ public class Speelveld extends JPanel {
 		updateSpeeldveld();
 
 		this.level = new Level();
-
 		speler = new Speler(0, 0);
 
 		veldGrid = new JPanel(new GridLayout(this.level.veldGrootte.width, this.level.veldGrootte.height));

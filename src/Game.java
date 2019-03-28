@@ -13,7 +13,6 @@ public class Game extends JFrame {
 		setResizable(false);
 		setSize(new Dimension(500, 500));
 		add(speelveld);
-
 	}
 
 	public static void main(String[] args) {
