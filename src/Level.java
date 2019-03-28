@@ -2,7 +2,6 @@ import java.awt.*;
 
 public class Level {
 
-	private int level;
 	private int[][] barricadeHonderd;
 	private int[][] barricadeTweeHonderd;
 	private int[][] barricadeDrieHonderd;
@@ -14,8 +13,7 @@ public class Level {
 	public VeldObject finish;
 	public Dimension veldGrootte;
 
-	public Level(int level) {
-		this.level = level;
+	public Level() {
 		this.veldGrootte = new Dimension(10, 10);
 	}
 
