@@ -15,4 +15,5 @@ public class Vakje {
 
 	public void setPositie(int rij, int kolom) {
 	}
+
 }

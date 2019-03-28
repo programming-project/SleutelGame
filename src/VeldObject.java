@@ -4,8 +4,7 @@ public abstract class VeldObject {
 	private int kolom;
 
 	public VeldObject(int rij, int kolom) {
-		this.rij = rij;
-		this.kolom = kolom;
+		setPositie(rij,kolom);
 	}
 
 	public int getRij() {

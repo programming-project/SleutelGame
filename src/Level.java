@@ -12,11 +12,11 @@ public class Level {
 	private int[][] Muren;
 	private VeldObject startPositie;
 	public VeldObject finish;
-	public Dimension boardSize;
+	public Dimension veldGrootte;
 
 	public Level(int level) {
 		this.level = level;
-		this.boardSize = new Dimension(10, 10);
+		this.veldGrootte = new Dimension(10, 10);
 	}
 
 	public int[][] getBarricadeHonderd() {

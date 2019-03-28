@@ -6,12 +6,14 @@ public class Speler extends VeldObject {
 		super(rij, kolom);
 	}
 
-
-
 	public void sleutelPakken() {
 	}
 
-	@Override
+    public Sleutel getZak() {
+        return zak;
+    }
+
+    @Override
 	public boolean padVrij() {
 		return false;
 	}
