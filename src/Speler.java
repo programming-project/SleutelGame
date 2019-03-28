@@ -6,6 +6,8 @@ public class Speler extends VeldObject {
 		super(rij, kolom);
 	}
 
+
+
 	public void sleutelPakken() {
 	}
 
