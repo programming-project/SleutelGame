@@ -35,7 +35,7 @@ public class Speelveld extends JPanel {
         this.veldPaneel.removeAll();
 	}
 
-	public void updateBoardObjects() {
+	public void updateVeldObjecten() {
 		veldGrid.removeAll();
 
 		veldGrid.repaint();
@@ -94,7 +94,7 @@ public class Speelveld extends JPanel {
 
 		vakjes[this.level.finish.getRij()][this.level.finish.getKolom()] = this.level.finish;
 
-		updateBoardObjects();
+		updateVeldObjecten();
 	}
 
 }
