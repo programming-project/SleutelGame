@@ -7,8 +7,8 @@ public class Speelveld extends JPanel {
 	private Speler speler;
 	private Vakje[][] vakjes;
 	private JPanel GameComponent;
-	private JMenu jMenuReset;
-	private JMenu jMenuAfsluiten;
+
+
 
 	public JPanel veldGrid = new JPanel(new GridLayout(10, 10));
 
