@@ -22,6 +22,11 @@ public abstract class VeldObject {
 		this.rij = rij;
 		this.kolom = kolom;
 	}
+
+	public JLabel getLabel() {
+		return this.label;
+	}
+
     public void setLabel(JLabel label) {
         this.label = label;
     }

@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 public class Game extends JFrame {
 
@@ -12,6 +12,8 @@ public class Game extends JFrame {
 		setDefaultCloseOperation(Game.EXIT_ON_CLOSE);
 		setResizable(false);
 		setSize(new Dimension(500, 500));
+
+		speelveld.updateVeldObjecten();
 		add(speelveld);
 	}
 
@@ -20,9 +22,20 @@ public class Game extends JFrame {
 		game.setVisible(true);
 	}
 
-	public class ClickListener implements ActionListener{
+	public class ClickListener implements KeyListener {
+
 		@Override
-		public void actionPerformed(ActionEvent e) {
+		public void keyTyped(KeyEvent e) {
+
+		}
+
+		@Override
+		public void keyPressed(KeyEvent e) {
+
+		}
+
+		@Override
+		public void keyReleased(KeyEvent e) {
 
 		}
 	}

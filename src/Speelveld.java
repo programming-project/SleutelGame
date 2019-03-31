@@ -36,6 +36,16 @@ public class Speelveld extends JPanel {
 	public void updateVeldObjecten() {
 		veldGrid.removeAll();
 
+		for (Vakje[] squares2D : vakjes) {
+			for (Vakje square : squares2D) {
+				if (square.hasBoardObject()) {
+					veldGrid.add(square.getVeldObject().getLabel());
+				} else {
+					veldGrid.add(square.getLabel());
+				}
+			}
+		}
+
 		veldGrid.repaint();
 		veldGrid.revalidate();
 	}
@@ -57,6 +67,20 @@ public class Speelveld extends JPanel {
 				vakjes[i][j] = new Vakje(i, j);
 			}
 		}
+
+		vakjes[speler.getRij()][speler.getKolom()].setVeldObject(speler);
+
+		for (int[] barricadeHonderd : this.level.getBarricadeHonderd()) {
+			vakjes[barricadeHonderd[0]][barricadeHonderd[1]].setVeldObject(new Barricade(100, barricadeHonderd[0], barricadeHonderd[1]));
+		}
+
+        for (int[] muren : this.level.getMuren()) {
+            vakjes[muren[0]][muren[1]].setVeldObject(new Muur(muren[0], muren[1]));
+        }
+
+
+
+        System.out.println();
 
 		updateVeldObjecten();
 	}

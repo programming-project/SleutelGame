@@ -15,17 +15,17 @@ public class Level {
 
 	public Level() {
 		this.veldGrootte = new Dimension(10, 10);
-		Muur muur = new Muur(0,1);
-				this.startPositie = new VeldObject(0, 0) {
-					@Override
-					public boolean padVrij() {
-						return false;
-					}
+
+
+				this.finish = new Finish(10, 10);
+
+				this.Muren = new int[][]{
+						{0, 1}, {0, 2} , {0, 4}
 				};
 
-				this.finish = new Finish(9, 9);
-
-				this.Muren = new int[][]{{0, 1}};
+				this.barricadeHonderd = new int[][]{
+					{0, 3}, {0, 5} , {0, 6}
+				};
 
 		}
 
