@@ -4,7 +4,7 @@ public class Vakje {
 
 	private VeldObject veldObject;
 
-    private JLabel label = new JLabel("");
+    private JLabel label = new JLabel();
 
     private int rij;
 	private int kolom;
@@ -14,7 +14,7 @@ public class Vakje {
 		this.kolom = kolom;
 	}
 
-    public JLabel getLabel() {
+    public JLabel getIcon() {
         return this.label;
     }
 
@@ -26,7 +26,7 @@ public class Vakje {
         return this.veldObject;
     }
 
-    public boolean hasBoardObject() {
+    public boolean bevatObject() {
         return veldObject != null;
     }
 
