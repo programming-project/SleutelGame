@@ -4,22 +4,34 @@ public class Speler extends VeldObject {
 
 	private Sleutel zak;
 
-	//constructor van speler
+	/**
+	 * Constructor van speler
+	 * @param rij is de startrij van speler
+	 * @param kolom is de startkolom van speler
+	 */
 	public Speler(int rij, int kolom) {
 		super(rij, kolom);
 		super.setIcon(new JLabel(new ImageIcon("src/icons/steve.png")));
 	}
 
-	//methode om sleutel op te pakken
+	/**
+	 * Methode om sleutel op te pakken
+	 */
 	public void sleutelPakken() {
 	}
 
-	//returned de sleutel die de speler bevat
+	/**
+	 * Getter die de inhoud van zak teruggeeft
+	 * @return is sleutel die de speler bevat in zak
+	 */
     public Sleutel getZak() {
         return zak;
     }
 
-    //kijkt of het object padvrij is
+	/**
+	 * Methode die kijkt of je door het VeldObject kan door heen lopen
+	 * @return is true als je wel door heen kan lopen, false als je niet door heen kan lopen
+	 */
     @Override
 	public boolean padVrij() {
 		return false;
@@ -27,13 +39,13 @@ public class Speler extends VeldObject {
 
 	@Override
 	public void setRij(int rij) {
-		int i = getRij() + rij;
-		super.setRij(i);
+		super.setRij(getRij()+rij);
+		System.out.println(super.getRij());
 	}
 
 	@Override
 	public void setKolom(int kolom) {
-		int i = getKolom() + kolom;
-		super.setRij(i);
+		super.setKolom(getKolom()+kolom);
+		System.out.println(super.getKolom());
 	}
 }

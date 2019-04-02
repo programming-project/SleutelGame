@@ -9,28 +9,47 @@ public class Vakje {
     private int rij;
 	private int kolom;
 
-	//constructor van vakje
+    /**
+     * Constructor van vakje
+     * @param rij is de positierij van vakje
+     * @param kolom is de positiekolom van vakje
+     */
 	public Vakje(int rij, int kolom) {
 		this.rij = rij;
 		this.kolom = kolom;
 	}
 
-	//returned de icoon/afbeelding van het vakje
+    /**
+     * Getter die de icoon van een bepaald VeldObject returned
+     * @return is de icoon
+     */
     public JLabel getIcon() {
         return this.label;
     }
 
-    //set de gegeven veldobject op het vakje
+    /**
+     * Setter die gegeven VeldObject zet op het vakje
+     * @param veldObject is de VeldObject die op het vakje gaat zitten
+     */
 	public void setVeldObject(VeldObject veldObject) {
 		this.veldObject = veldObject;
 	}
 
-	//returned het veldobject van het vakje
+    /**
+     * Getter die de VeldObject op een vakje teruggeeft
+     * @return is het VeldObject
+     */
     public VeldObject getVeldObject() {
         return this.veldObject;
     }
 
-    //kijkt of een vakje al een object heeft
+    /**
+     * Methode die kijkt of het vakje een VeldObject bevat of niet
+     * @return is
+     *
+     *
+     *
+     */
     public boolean bevatObject() {
         return veldObject != null;
     }

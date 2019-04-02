@@ -6,43 +6,72 @@ public abstract class VeldObject {
 	private int kolom;
     private JLabel label;
 
-    //constructor van de veldobjecten
+	/**
+	 * Constructor voor een VeldObject
+	 * @param rij is de positierij van VeldObject
+	 * @param kolom is de posotiekolom van VeldObject
+	 */
 	public VeldObject(int rij, int kolom) {
 		setPositie(rij,kolom);
 	}
 
-	//set de rij van het object
+	/**
+	 * Setter die de rij zet van het VeldObject
+	 * @param rij positie voor rij
+	 */
 	public void setRij(int rij) {
 		this.rij = rij;
 	}
 
-	//set de kolom van het object
+	/**
+	 * Setter die de kolom zet van het VeldObject
+	 * @param kolom positie voor rij
+	 */
 	public void setKolom(int kolom) {
 		this.kolom = kolom;
 	}
 
-	//returned de rij van het object
+	/**
+	 * Getter die de rij teruggeeft van het VeldObject
+	 * @return rij van het VeldObject
+	 */
 	public int getRij() {
 		return rij;
 	}
 
-	//returned de kolom van het object
+	/**
+	 * Getter die de kolom teruggeeft van het VeldObject
+	 * @return kolom van het VeldObject
+	 */
 	public int getKolom() {
 		return kolom;
 	}
 
-	//set de positie van het object
+	/**
+	 * Setter voor de positie van een VeldObject te zetten
+	 * @param rij is de positierij van het VeldObject
+	 * @param kolom is de positiekolom van het VeldObject
+	 */
 	public void setPositie(int rij, int kolom){
 		this.rij = rij;
 		this.kolom = kolom;
 	}
 
-	//returned de icoon/afbeelding van het object
+	/**
+	 * Getter voor de icoon van VeldObject
+	 * @return is de icoon
+	 */
 	public JLabel getIcon() {
 		return this.label;
 	}
 
-	//stelt de icoon/afbeelding van het object
+	/**
+	 * Setter die zorgt voor dat een VeldObject een icoon heeft
+	 * @param label
+	 *
+	 *
+	 *
+	 */
     public void setIcon(JLabel label) {
         this.label = label;
     }

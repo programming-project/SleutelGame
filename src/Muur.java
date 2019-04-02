@@ -7,7 +7,10 @@ public class Muur extends VeldObject {
 		super.setIcon(new JLabel(new ImageIcon("src/icons/muur.png")));
 	}
 
-	//controleert of je door het object kan lopen
+	/**
+	 * Methode die kijkt of je door het VeldObject kan door heen lopen
+	 * @return is true als je wel door heen kan lopen, false als je niet door heen kan lopen
+	 */
 	@Override
 	public boolean padVrij() {
 		return false;

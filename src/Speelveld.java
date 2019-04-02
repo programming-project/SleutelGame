@@ -7,45 +7,61 @@ public class Speelveld extends JPanel {
 	private Speler speler;
 	private Vakje[][] vakjes;
 
-	//maakt een gridlayout voor de vakjes aan
+	/**
+	 * Maakt een gridlayout voor de vakjes aan
+	 */
 	public JPanel veldGrid = new JPanel(new GridLayout(10, 10));
 
-	//constructor voor speelveld
+	/**
+	 * Constructor voor speelveld
+	 */
 	public Speelveld() {
 		setLayout(new BorderLayout());
 		setPreferredSize(new Dimension(500, 500));
 		setLevel();
 	}
 
-	//reset functie om de game te herstarten
+	/**
+	 * Methode die de game laat herstarten
+	 */
 	public void reset() {
 	}
 
-	//sluit functie om de game aftesluiten
+	/**
+	 * Methodie die de game laat afsluiten
+	 */
 	public void aflsuiten() {
 	}
 
-	//methoden om te lopen
+	/**
+	 * Methode om te lopen zodat de speler kan bewegen op de speelveld
+	 * @param i	is de afstand die de speler gaat afleggen
+	 * @param richting is de kant waar de speler naar toe gaat, de speler kan naar het noorden, zuiden, oosten en westen
+	 */
 	public void lopen(int i, String richting) {
-		if(richting == "N"){
+		if(richting.equals("N")){
 			speler.setKolom(i);
 		}
-		else if(richting == "Z"){
+		else if(richting.equals("Z")){
 			speler.setKolom(i);
 		}
-		else if(richting == "W"){
+		else if(richting.equals("W")){
 			speler.setRij(i);
 		}
-		else if(richting == "O"){
+		else if(richting.equals("O")){
 			speler.setRij(i);
 		}
 	}
 
-	//methode om het speelveld te updaten/refresh
+	/**
+	 * Methode om het speelveld te updaten/refresh
+	 */
 	public void updateSpeeldveld() {
 	}
 
-	//update de veldobjecten
+	/**
+	 * Methode die de VeldObjecten ververst
+	 */
 	public void updateVeldObjecten() {
 		veldGrid.removeAll();
 
@@ -59,11 +75,12 @@ public class Speelveld extends JPanel {
 				}
 			}
 		}
-
 		veldGrid.repaint();
 	}
 
-	//methode om de level op het speelveld te painten
+	/**
+	 * Methode om de level op het speelveld te painten
+	 */
 	public void setLevel() {
 		level = new Level();
 		speler = new Speler(0, 0);

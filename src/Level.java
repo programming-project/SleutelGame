@@ -13,7 +13,6 @@ public class Level {
 	public Dimension veldGrootte = new Dimension(10, 10);
 
 	public Level() {
-
 	}
 
 	public int[][] getBarricadeHonderd() {
