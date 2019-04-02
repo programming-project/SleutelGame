@@ -15,6 +15,7 @@ public class Game extends JFrame {
 		setResizable(false);
 		setSize(new Dimension(500, 500));
 		listener = new ClickListener();
+		this.addKeyListener(listener);
 
 		speelveld.updateVeldObjecten();
 		add(speelveld);
@@ -29,8 +30,11 @@ public class Game extends JFrame {
 
 		@Override
 		public void keyTyped(KeyEvent e) {
+		}
+
+		@Override
+		public void keyPressed(KeyEvent e) {
 			if(e.getKeyCode() == KeyEvent.VK_UP){
-				System.out.println("N");
 				speelveld.lopen(-1,"N");
 			}
 
@@ -45,11 +49,6 @@ public class Game extends JFrame {
 			if(e.getKeyCode() == KeyEvent.VK_RIGHT){
 				speelveld.lopen(1,"O");
 			}
-		}
-
-		@Override
-		public void keyPressed(KeyEvent e) {
-
 		}
 
 		@Override
