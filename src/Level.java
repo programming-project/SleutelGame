@@ -2,32 +2,19 @@ import java.awt.*;
 
 public class Level {
 
-	private int[][] barricadeHonderd;
+	private int[][] barricadeHonderd = new int[][]{{0, 3}, {0, 5} , {0, 6}};
 	private int[][] barricadeTweeHonderd;
 	private int[][] barricadeDrieHonderd;
 	private int[][] sleutelHonderd;
 	private int[][] sleutelTweeHonderd;
 	private int[][] sleutelDrieHonderd;
-	private int[][] Muren;
-	private VeldObject startPositie;
-	public VeldObject finish;
-	public Dimension veldGrootte;
+	private int[][] Muren = new int[][]{{0, 1}, {0, 2} , {0, 4} };
+	public VeldObject finish = new Finish(10, 10);;
+	public Dimension veldGrootte = new Dimension(10, 10);
 
 	public Level() {
-		this.veldGrootte = new Dimension(10, 10);
 
-
-				this.finish = new Finish(10, 10);
-
-				this.Muren = new int[][]{
-						{0, 1}, {0, 2} , {0, 4}
-				};
-
-				this.barricadeHonderd = new int[][]{
-					{0, 3}, {0, 5} , {0, 6}
-				};
-
-		}
+	}
 
 	public int[][] getBarricadeHonderd() {
 		return barricadeHonderd;
@@ -55,10 +42,6 @@ public class Level {
 
 	public int[][] getMuren() {
 		return Muren;
-	}
-
-	public VeldObject getStartPositie() {
-		return startPositie;
 	}
 
 	public VeldObject getFinish() {

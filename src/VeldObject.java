@@ -23,11 +23,11 @@ public abstract class VeldObject {
 		this.kolom = kolom;
 	}
 
-	public JLabel getLabel() {
+	public JLabel getIcon() {
 		return this.label;
 	}
 
-    public void setLabel(JLabel label) {
+    public void setIcon(JLabel label) {
         this.label = label;
     }
 

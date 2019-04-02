@@ -6,14 +6,11 @@ public class Speelveld extends JPanel {
 	private Level level;
 	private Speler speler;
 	private Vakje[][] vakjes;
-	private JPanel GameComponent;
-
-
 
 	public JPanel veldGrid = new JPanel(new GridLayout(10, 10));
 
 	public Speelveld() {
-		super.setLayout(new BorderLayout());
+		setLayout(new BorderLayout());
 		setPreferredSize(new Dimension(500, 100));
 		setLevel();
 	}
@@ -28,20 +25,17 @@ public class Speelveld extends JPanel {
 	}
 
 	public void updateSpeeldveld() {
-        removeAll();
-        repaint();
-        revalidate();
 	}
 
 	public void updateVeldObjecten() {
 		veldGrid.removeAll();
 
-		for (Vakje[] squares2D : vakjes) {
-			for (Vakje square : squares2D) {
-				if (square.hasBoardObject()) {
-					veldGrid.add(square.getVeldObject().getLabel());
+		for (Vakje[] vakVeld : vakjes) {
+			for (Vakje vak : vakVeld) {
+				if (vak.hasBoardObject()) {
+					veldGrid.add(vak.getVeldObject().getIcon());
 				} else {
-					veldGrid.add(square.getLabel());
+					veldGrid.add(vak.getIcon());
 				}
 			}
 		}
@@ -51,14 +45,12 @@ public class Speelveld extends JPanel {
 	}
 
 	public void setLevel() {
-		updateSpeeldveld();
-
-		this.level = new Level();
+		level = new Level();
 		speler = new Speler(0, 0);
 
 		veldGrid = new JPanel(new GridLayout(this.level.veldGrootte.width, this.level.veldGrootte.height));
 
-		super.add(veldGrid, BorderLayout.CENTER);
+		add(veldGrid, BorderLayout.CENTER);
 
 		vakjes = new Vakje[this.level.veldGrootte.width][this.level.veldGrootte.height];
 
@@ -77,12 +69,5 @@ public class Speelveld extends JPanel {
         for (int[] muren : this.level.getMuren()) {
             vakjes[muren[0]][muren[1]].setVeldObject(new Muur(muren[0], muren[1]));
         }
-
-
-
-        System.out.println();
-
-		updateVeldObjecten();
 	}
-
 }

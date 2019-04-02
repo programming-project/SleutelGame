@@ -9,13 +9,13 @@ public class Barricade extends VeldObject {
 		this.sleutelNummer = sleutelNummer;
 
 		if(sleutelNummer == 100){
-			super.setLabel(new JLabel(new ImageIcon("src/icons/trapdoor100.png")));
+			super.setIcon(new JLabel(new ImageIcon("src/icons/trapdoor100.png")));
 		}else if(sleutelNummer == 200){
-			super.setLabel(new JLabel(new ImageIcon("src/icons/trapdoor200.png")));
+			super.setIcon(new JLabel(new ImageIcon("src/icons/trapdoor200.png")));
 		}else if(sleutelNummer == 300){
-			super.setLabel(new JLabel(new ImageIcon("src/icons/trapdoor300.png")));
+			super.setIcon(new JLabel(new ImageIcon("src/icons/trapdoor300.png")));
 		}else{
-			super.setLabel(new JLabel(new ImageIcon("src/icons/.png")));
+			super.setIcon(new JLabel(new ImageIcon("src/icons/.png")));
 		}
 	}
 

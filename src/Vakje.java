@@ -14,7 +14,7 @@ public class Vakje {
 		this.kolom = kolom;
 	}
 
-    public JLabel getLabel() {
+    public JLabel getIcon() {
         return this.label;
     }
 

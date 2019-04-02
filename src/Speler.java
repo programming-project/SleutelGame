@@ -6,7 +6,7 @@ public class Speler extends VeldObject {
 
 	public Speler(int rij, int kolom) {
 		super(rij, kolom);
-		super.setLabel(new JLabel(new ImageIcon("src/icons/steve.png")));
+		super.setIcon(new JLabel(new ImageIcon("src/icons/steve.png")));
 	}
 
 	public void sleutelPakken() {
