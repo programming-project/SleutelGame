@@ -30,7 +30,4 @@ public class Vakje {
         return veldObject != null;
     }
 
-	public void setPositie(int rij, int kolom) {
-	}
-
 }

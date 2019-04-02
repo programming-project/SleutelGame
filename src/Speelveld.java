@@ -24,7 +24,19 @@ public class Speelveld extends JPanel {
 	public void aflsuiten() {
 	}
 
-	public void lopen(int rij, int kolom) {
+	public void lopen(int i, String richting) {
+		if(richting == "N"){
+			speler.setKolom(i);
+		}
+		else if(richting == "Z"){
+			speler.setKolom(i);
+		}
+		else if(richting == "W"){
+			speler.setRij(i);
+		}
+		else if(richting == "O"){
+			speler.setRij(i);
+		}
 	}
 
 	public void updateSpeeldveld() {

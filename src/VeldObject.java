@@ -10,6 +10,14 @@ public abstract class VeldObject {
 		setPositie(rij,kolom);
 	}
 
+	public void setRij(int rij) {
+		this.rij = rij;
+	}
+
+	public void setKolom(int kolom) {
+		this.kolom = kolom;
+	}
+
 	public int getRij() {
 		return rij;
 	}
