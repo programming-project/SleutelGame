@@ -32,7 +32,7 @@ public class Speelveld extends JPanel {
 
 		for (Vakje[] vakVeld : vakjes) {
 			for (Vakje vak : vakVeld) {
-				if (vak.hasBoardObject()) {
+				if (vak.bevatObject()) {
 					veldGrid.add(vak.getVeldObject().getIcon());
 				} else {
 					veldGrid.add(vak.getIcon());
