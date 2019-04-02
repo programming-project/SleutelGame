@@ -7,6 +7,7 @@ public class Muur extends VeldObject {
 		super.setIcon(new JLabel(new ImageIcon("src/icons/muur.png")));
 	}
 
+	
 	@Override
 	public boolean padVrij() {
 		return false;

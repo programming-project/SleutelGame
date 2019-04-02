@@ -48,9 +48,7 @@ public class Speelveld extends JPanel {
 		level = new Level();
 		speler = new Speler(0, 0);
 
-		veldGrid = new JPanel(new GridLayout(this.level.veldGrootte.width, this.level.veldGrootte.height));
-
-		add(veldGrid, BorderLayout.CENTER);
+		add(veldGrid);
 
 		vakjes = new Vakje[this.level.veldGrootte.width][this.level.veldGrootte.height];
 
