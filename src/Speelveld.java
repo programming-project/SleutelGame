@@ -13,7 +13,7 @@ public class Speelveld extends JPanel {
 	//constructor voor speelveld
 	public Speelveld() {
 		setLayout(new BorderLayout());
-		setPreferredSize(new Dimension(500, 100));
+		setPreferredSize(new Dimension(500, 500));
 		setLevel();
 	}
 

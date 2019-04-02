@@ -9,7 +9,7 @@ public class Level {
 	private int[][] sleutelTweeHonderd;
 	private int[][] sleutelDrieHonderd;
 	private int[][] Muren = new int[][]{{0, 1}, {0, 2} , {0, 4} };
-	public VeldObject finish = new Finish(10, 10);;
+	public VeldObject finish = new Finish(10, 10);
 	public Dimension veldGrootte = new Dimension(10, 10);
 
 	public Level() {
