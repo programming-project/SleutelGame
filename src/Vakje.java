@@ -4,7 +4,7 @@ public class Vakje {
 
 	private VeldObject veldObject;
 
-    private JLabel label = new JLabel();
+    private JLabel label = new JLabel("X");
 
     private int rij;
 	private int kolom;
