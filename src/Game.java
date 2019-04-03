@@ -40,22 +40,19 @@ public class Game extends JFrame implements KeyListener  {
 	public void keyPressed(KeyEvent e){
 		if (e.getKeyCode() == KeyEvent.VK_UP) {
 			speelveld.lopen(-1, "N");
-			speelveld.updateVeldObjecten();
+
 		}
 
 		if (e.getKeyCode() == KeyEvent.VK_DOWN) {
 			speelveld.lopen(1,"Z");
-			speelveld.updateVeldObjecten();
 		}
 
 		if (e.getKeyCode() == KeyEvent.VK_LEFT) {
 			speelveld.lopen(-1, "W");
-			speelveld.updateVeldObjecten();
 		}
 
 		if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
 			speelveld.lopen(1, "O");
-			speelveld.updateVeldObjecten();
 		}
 	}
 

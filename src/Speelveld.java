@@ -19,8 +19,6 @@ public class Speelveld extends JPanel {
 		setLayout(new BorderLayout());
 		setPreferredSize(new Dimension(500, 500));
 		setLevel();
-		System.out.println(speler.getKolom());
-		System.out.println(speler.getRij());
 	}
 
 	/**
@@ -43,24 +41,30 @@ public class Speelveld extends JPanel {
 	public void lopen(int i, String richting) {
 		if(richting.equals("N")){
 			if(speler.getKolom() != 0){
+				vakjes[speler.getRij()][speler.getKolom()].setVeldObject(null);
 				speler.setKolom(i);
+				updateVeldObjecten();
 			}
 		}
 		else if(richting.equals("Z")){
-			if(speler.getKolom() != 10){
+			if(speler.getKolom() != 9){
+				vakjes[speler.getRij()][speler.getKolom()].setVeldObject(null);
 				speler.setKolom(i);
-			}
+				updateVeldObjecten();			}
 		}
 		else if(richting.equals("W")){
 			if(speler.getRij() != 0){
+				vakjes[speler.getRij()][speler.getKolom()].setVeldObject(null);
 				speler.setRij(i);
+				updateVeldObjecten();
 			}
 
 		}
 		else if(richting.equals("O")){
-			if(speler.getRij() != 10){
+			if(speler.getRij() != 9){
+				vakjes[speler.getRij()][speler.getKolom()].setVeldObject(null);
 				speler.setRij(i);
-			}
+				updateVeldObjecten();			}
 		}
 	}
 
@@ -68,13 +72,16 @@ public class Speelveld extends JPanel {
 	 * Methode om het speelveld te updaten/refresh
 	 */
 	public void updateSpeeldveld() {
+
 	}
 
 	/**
 	 * Methode die de VeldObjecten ververst
 	 */
 	public void updateVeldObjecten() {
-		veldGrid.removeAll();
+
+
+		vakjes[speler.getRij()][speler.getKolom()].setVeldObject(speler);
 
 		//for loop om de objecten iconen op het veld te krijgen
 		for (Vakje[] vakVeld : vakjes) {
@@ -86,6 +93,9 @@ public class Speelveld extends JPanel {
 				}
 			}
 		}
+
+
+		veldGrid.revalidate();
 		veldGrid.repaint();
 	}
 
@@ -112,13 +122,15 @@ public class Speelveld extends JPanel {
 		vakjes[speler.getRij()][speler.getKolom()].setVeldObject(speler);
 
 		//for loop om de objecten uit de array barricade te maken en te plaatsen op hun vakjes
-		for (int[] barricadeHonderd : this.level.getBarricadeHonderd()) {
+
+		/*for (int[] barricadeHonderd : this.level.getBarricadeHonderd()) {
 			vakjes[barricadeHonderd[0]][barricadeHonderd[1]].setVeldObject(new Barricade(100, barricadeHonderd[0], barricadeHonderd[1]));
-		}
+		}*/
 
 		//for loop om object muur op de vakjes te plaatsen
-        for (int[] muren : this.level.getMuren()) {
+
+        /*for (int[] muren : this.level.getMuren()) {
             vakjes[muren[0]][muren[1]].setVeldObject(new Muur(muren[0], muren[1]));
-        }
+        }*/
 	}
 }
