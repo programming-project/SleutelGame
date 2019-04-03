@@ -36,16 +36,4 @@ public class Speler extends VeldObject {
 	public boolean padVrij() {
 		return false;
 	}
-
-	@Override
-	public void setRij(int rij) {
-		super.setRij(getRij() + rij);
-		System.out.println(super.getRij());
-	}
-
-	@Override
-	public void setKolom(int kolom) {
-		super.setKolom(getKolom() + kolom);
-		System.out.println(super.getKolom());
-	}
 }

@@ -38,33 +38,30 @@ public class Speelveld extends JPanel {
 	 * @param i	is de afstand die de speler gaat afleggen
 	 * @param richting is de kant waar de speler naar toe gaat, de speler kan naar het noorden, zuiden, oosten en westen
 	 */
-	public void lopen(int i, String richting) {
+	public void lopen(String richting) {
 		if(richting.equals("N")){
-			if(speler.getKolom() != 0){ speler.setKolom(i);
-				speler.setKolom(i);
-				vakjes[speler.getRij()][speler.getKolom()].setVeldObject(speler);
+			if(speler.getKolom() != 0){
+				speler.setKolom(speler.getKolom()-1);
 				updateVeldObjecten();
 			}
 		}
 		else if(richting.equals("Z")){
 			if(speler.getKolom() != 9){
-				speler.setKolom(i);
-				vakjes[speler.getRij()][speler.getKolom()].setVeldObject(speler);
-				updateVeldObjecten();			}
+				speler.setKolom(speler.getKolom()+1);
+				updateVeldObjecten();
+			}
 		}
 		else if(richting.equals("W")){
 			if(speler.getRij() != 0){
-				speler.setRij(i);
-				vakjes[speler.getRij()][speler.getKolom()].setVeldObject(speler);
+				speler.setRij(speler.getRij()-1);
 				updateVeldObjecten();
 			}
-
 		}
 		else if(richting.equals("O")){
 			if(speler.getRij() != 9){
-				speler.setRij(i);
-				vakjes[speler.getRij()][speler.getKolom()].setVeldObject(speler);
-				updateVeldObjecten();			}
+				speler.setRij(speler.getRij()+1);
+				updateVeldObjecten();
+			}
 		}
 	}
 
@@ -76,11 +73,12 @@ public class Speelveld extends JPanel {
 	}
 
 	/**
-	 * Methode die de Veld Objecten ververst
+	 * Methode die de VeldObjecten ververst
 	 */
 	public void updateVeldObjecten() {
 
-		//veldGrid.removeAll();
+
+		vakjes[speler.getKolom()][speler.getRij()].setVeldObject(speler);
 
 		//for loop om de objecten iconen op het veld te krijgen
 		for (Vakje[] vakVeld : vakjes) {
@@ -92,8 +90,6 @@ public class Speelveld extends JPanel {
 				}
 			}
 		}
-
-
 
 		veldGrid.revalidate();
 		veldGrid.repaint();
@@ -113,7 +109,7 @@ public class Speelveld extends JPanel {
 
 		//for loop om vakjes aan te maken met behulp van de grootte van het veld
 		for (int i = 0; i < this.level.veldGrootte.width; i++) {
-			for (int j = 0; j < this.level.veldGrootte.height; j++) {
+			for (int j = 0; j < this.level.veldGrootte.width; j++) {
 				vakjes[i][j] = new Vakje(i, j);
 			}
 		}
