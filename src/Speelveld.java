@@ -19,6 +19,8 @@ public class Speelveld extends JPanel {
 		setLayout(new BorderLayout());
 		setPreferredSize(new Dimension(500, 500));
 		setLevel();
+		System.out.println(speler.getKolom());
+		System.out.println(speler.getRij());
 	}
 
 	/**
@@ -40,16 +42,25 @@ public class Speelveld extends JPanel {
 	 */
 	public void lopen(int i, String richting) {
 		if(richting.equals("N")){
-			speler.setKolom(i);
+			if(speler.getKolom() != 0){
+				speler.setKolom(i);
+			}
 		}
 		else if(richting.equals("Z")){
-			speler.setKolom(i);
+			if(speler.getKolom() != 10){
+				speler.setKolom(i);
+			}
 		}
 		else if(richting.equals("W")){
-			speler.setRij(i);
+			if(speler.getRij() != 0){
+				speler.setRij(i);
+			}
+
 		}
 		else if(richting.equals("O")){
-			speler.setRij(i);
+			if(speler.getRij() != 10){
+				speler.setRij(i);
+			}
 		}
 	}
 
