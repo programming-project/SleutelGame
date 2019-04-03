@@ -5,6 +5,7 @@ public class Speelveld extends JPanel {
 
 	private Level level;
 	private Speler speler;
+    private Finish finish;
 	private Vakje[][] vakjes;
 
 	/**
@@ -118,6 +119,7 @@ public class Speelveld extends JPanel {
 	public void setLevel() {
 		level = new Level();
 		speler = new Speler(0, 0);
+		finish = new Finish(9,9);
 
 		//voeg de grid toe aan de jpanel
 		add(veldGrid);
@@ -134,6 +136,8 @@ public class Speelveld extends JPanel {
 
 		//zet de speler op een vakje
 		vakjes[speler.getRij()][speler.getKolom()].setVeldObject(speler);
+
+        vakjes[level.finish.getRij()][level.finish.getKolom()].setVeldObject(finish);
 
 		//for loop om de objecten uit de array barricade te maken en te plaatsen op hun vakjes
 
