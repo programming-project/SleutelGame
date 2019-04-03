@@ -35,31 +35,34 @@ public class Speelveld extends JPanel {
 
 	/**
 	 * Methode om te lopen zodat de speler kan bewegen op de speelveld
-	 * @param i	is de afstand die de speler gaat afleggen
 	 * @param richting is de kant waar de speler naar toe gaat, de speler kan naar het noorden, zuiden, oosten en westen
 	 */
 	public void lopen(String richting) {
 		if(richting.equals("N")){
 			if(speler.getKolom() != 0){
 				speler.setKolom(speler.getKolom()-1);
+				System.out.println(speler.getKolom());
 				updateVeldObjecten();
 			}
 		}
 		else if(richting.equals("Z")){
 			if(speler.getKolom() != 9){
 				speler.setKolom(speler.getKolom()+1);
+				System.out.println(speler.getKolom());
 				updateVeldObjecten();
 			}
 		}
 		else if(richting.equals("W")){
 			if(speler.getRij() != 0){
 				speler.setRij(speler.getRij()-1);
+				System.out.println(speler.getRij());
 				updateVeldObjecten();
 			}
 		}
 		else if(richting.equals("O")){
 			if(speler.getRij() != 9){
 				speler.setRij(speler.getRij()+1);
+				System.out.println(speler.getRij());
 				updateVeldObjecten();
 			}
 		}
@@ -77,7 +80,6 @@ public class Speelveld extends JPanel {
 	 */
 	public void updateVeldObjecten() {
 
-
 		vakjes[speler.getKolom()][speler.getRij()].setVeldObject(speler);
 
 		//for loop om de objecten iconen op het veld te krijgen
@@ -90,7 +92,6 @@ public class Speelveld extends JPanel {
 				}
 			}
 		}
-
 		veldGrid.revalidate();
 		veldGrid.repaint();
 	}
@@ -125,8 +126,8 @@ public class Speelveld extends JPanel {
 
 		//for loop om object muur op de vakjes te plaatsen
 
-        /*for (int[] muren : this.level.getMuren()) {
-            vakjes[muren[0]][muren[1]].setVeldObject(new Muur(muren[0], muren[1]));
-        }*/
+//        for (int[] muren : this.level.getMuren()) {
+//            vakjes[muren[0]][muren[1]].setVeldObject(new Muur(muren[0], muren[1]));
+//        }
 	}
 }
