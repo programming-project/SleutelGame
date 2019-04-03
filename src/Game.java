@@ -40,7 +40,6 @@ public class Game extends JFrame implements KeyListener  {
 	public void keyPressed(KeyEvent e){
 		if (e.getKeyCode() == KeyEvent.VK_UP) {
 			speelveld.lopen(-1, "N");
-
 		}
 
 		if (e.getKeyCode() == KeyEvent.VK_DOWN) {

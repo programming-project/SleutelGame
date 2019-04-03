@@ -40,30 +40,30 @@ public class Speelveld extends JPanel {
 	 */
 	public void lopen(int i, String richting) {
 		if(richting.equals("N")){
-			if(speler.getKolom() != 0){
-				vakjes[speler.getRij()][speler.getKolom()].setVeldObject(null);
+			if(speler.getKolom() != 0){ speler.setKolom(i);
 				speler.setKolom(i);
+				vakjes[speler.getRij()][speler.getKolom()].setVeldObject(speler);
 				updateVeldObjecten();
 			}
 		}
 		else if(richting.equals("Z")){
 			if(speler.getKolom() != 9){
-				vakjes[speler.getRij()][speler.getKolom()].setVeldObject(null);
 				speler.setKolom(i);
+				vakjes[speler.getRij()][speler.getKolom()].setVeldObject(speler);
 				updateVeldObjecten();			}
 		}
 		else if(richting.equals("W")){
 			if(speler.getRij() != 0){
-				vakjes[speler.getRij()][speler.getKolom()].setVeldObject(null);
 				speler.setRij(i);
+				vakjes[speler.getRij()][speler.getKolom()].setVeldObject(speler);
 				updateVeldObjecten();
 			}
 
 		}
 		else if(richting.equals("O")){
 			if(speler.getRij() != 9){
-				vakjes[speler.getRij()][speler.getKolom()].setVeldObject(null);
 				speler.setRij(i);
+				vakjes[speler.getRij()][speler.getKolom()].setVeldObject(speler);
 				updateVeldObjecten();			}
 		}
 	}
@@ -76,12 +76,11 @@ public class Speelveld extends JPanel {
 	}
 
 	/**
-	 * Methode die de VeldObjecten ververst
+	 * Methode die de Veld Objecten ververst
 	 */
 	public void updateVeldObjecten() {
 
-
-		vakjes[speler.getRij()][speler.getKolom()].setVeldObject(speler);
+		//veldGrid.removeAll();
 
 		//for loop om de objecten iconen op het veld te krijgen
 		for (Vakje[] vakVeld : vakjes) {
@@ -93,6 +92,7 @@ public class Speelveld extends JPanel {
 				}
 			}
 		}
+
 
 
 		veldGrid.revalidate();
@@ -113,7 +113,7 @@ public class Speelveld extends JPanel {
 
 		//for loop om vakjes aan te maken met behulp van de grootte van het veld
 		for (int i = 0; i < this.level.veldGrootte.width; i++) {
-			for (int j = 0; j < this.level.veldGrootte.width; j++) {
+			for (int j = 0; j < this.level.veldGrootte.height; j++) {
 				vakjes[i][j] = new Vakje(i, j);
 			}
 		}
