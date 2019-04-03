@@ -4,7 +4,7 @@ public class Vakje {
 
 	private VeldObject veldObject;
 
-    private JLabel label = new JLabel();
+    private JLabel label = new JLabel("X");
 
     private int rij;
 	private int kolom;
@@ -57,6 +57,10 @@ public class Vakje {
     public void setLabel(int i, int j){
         String s = "["+i+ ","+j+"]";
         label.setText(s);
+    }
+
+    public boolean padVrij(){
+        return true;
     }
 
 }

@@ -41,34 +41,44 @@ public class Speelveld extends JPanel {
 	public void lopen(int i, String richting) {
 		if(richting.equals("W")){
 			if(speler.getKolom() != 0){
-				vakjes[speler.getRij()][speler.getKolom()].setVeldObject(null);
-				speler.setKolom(i);
-				vakjes[speler.getRij()][speler.getKolom()].setVeldObject(speler);
-				updateVeldObjecten();
+				if(vakjes[speler.getRij()][(speler.getKolom()+i)].getVeldObject() == null){
+					vakjes[speler.getRij()][speler.getKolom()].setVeldObject(null);
+					speler.setKolom(i);
+					vakjes[speler.getRij()][speler.getKolom()].setVeldObject(speler);
+					updateVeldObjecten();
+				}
 			}
 		}
 		else if(richting.equals("O")){
 			if(speler.getKolom() != 9){
-				vakjes[speler.getRij()][speler.getKolom()].setVeldObject(null);
-				speler.setKolom(i);
-				vakjes[speler.getRij()][speler.getKolom()].setVeldObject(speler);
-				updateVeldObjecten();			}
+				if(vakjes[speler.getRij()][(speler.getKolom()+i)].getVeldObject() == null){
+					vakjes[speler.getRij()][speler.getKolom()].setVeldObject(null);
+					speler.setKolom(i);
+					vakjes[speler.getRij()][speler.getKolom()].setVeldObject(speler);
+					updateVeldObjecten();
+				}
+			}
 		}
 		else if(richting.equals("N")){
 			if(speler.getRij() != 0){
-				vakjes[speler.getRij()][speler.getKolom()].setVeldObject(null);
-				speler.setRij(i);
-				vakjes[speler.getRij()][speler.getKolom()].setVeldObject(speler);
-				updateVeldObjecten();
+				if(vakjes[speler.getRij()+i][(speler.getKolom())].getVeldObject() == null){
+					vakjes[speler.getRij()][speler.getKolom()].setVeldObject(null);
+					speler.setRij(i);
+					vakjes[speler.getRij()][speler.getKolom()].setVeldObject(speler);
+					updateVeldObjecten();
+				}
 			}
 
 		}
 		else if(richting.equals("Z")){
 			if(speler.getRij() != 9){
-				vakjes[speler.getRij()][speler.getKolom()].setVeldObject(null);
-				speler.setRij(i);
-				vakjes[speler.getRij()][speler.getKolom()].setVeldObject(speler);
-				updateVeldObjecten();			}
+				if(vakjes[speler.getRij()+i][(speler.getKolom())].getVeldObject() == null){
+					vakjes[speler.getRij()][speler.getKolom()].setVeldObject(null);
+					speler.setRij(i);
+					vakjes[speler.getRij()][speler.getKolom()].setVeldObject(speler);
+					updateVeldObjecten();
+				}
+			}
 		}
 	}
 
@@ -90,7 +100,7 @@ public class Speelveld extends JPanel {
 		//for loop om de objecten iconen op het veld te krijgen
 		for (Vakje[] vakVeld : vakjes) {
 			for (Vakje vak : vakVeld) {
-				if (vak.getVeldObject() == speler) {
+				if (vak.bevatObject()) {
 					veldGrid.add(vak.getVeldObject().getIcon());
 				} else {
 					veldGrid.add(vak.getIcon());
@@ -127,14 +137,34 @@ public class Speelveld extends JPanel {
 
 		//for loop om de objecten uit de array barricade te maken en te plaatsen op hun vakjes
 
-		/*for (int[] barricadeHonderd : this.level.getBarricadeHonderd()) {
+		for (int[] barricadeHonderd : this.level.getBarricadeHonderd()) {
 			vakjes[barricadeHonderd[0]][barricadeHonderd[1]].setVeldObject(new Barricade(100, barricadeHonderd[0], barricadeHonderd[1]));
-		}*/
+		}
+
+        for (int[] sleutelHonderd : this.level.getSleutelHonderd()) {
+            vakjes[sleutelHonderd[0]][sleutelHonderd[1]].setVeldObject(new Sleutel(100, sleutelHonderd[0], sleutelHonderd[1]));
+        }
+
+        for (int[] barricadeTweehonderd : this.level.getBarricadeTweeHonderd()) {
+            vakjes[barricadeTweehonderd[0]][barricadeTweehonderd[1]].setVeldObject(new Barricade(200, barricadeTweehonderd[0], barricadeTweehonderd[1]));
+        }
+
+        for (int[] sleutelTweehonderd : this.level.getSleutelTweeHonderd()) {
+            vakjes[sleutelTweehonderd[0]][sleutelTweehonderd[1]].setVeldObject(new Sleutel(200, sleutelTweehonderd[0], sleutelTweehonderd[1]));
+        }
+
+        for (int[] barricadeDriehonderd : this.level.getBarricadeDrieHonderd()) {
+            vakjes[barricadeDriehonderd[0]][barricadeDriehonderd[1]].setVeldObject(new Barricade(300, barricadeDriehonderd[0], barricadeDriehonderd[1]));
+        }
+
+        for (int[] sleutelDriehonderd : this.level.getSleutelDrieHonderd()) {
+            vakjes[sleutelDriehonderd[0]][sleutelDriehonderd[1]].setVeldObject(new Sleutel(300, sleutelDriehonderd[0], sleutelDriehonderd[1]));
+        }
 
 		//for loop om object muur op de vakjes te plaatsen
 
-        /*for (int[] muren : this.level.getMuren()) {
+        for (int[] muren : this.level.getMuren()) {
             vakjes[muren[0]][muren[1]].setVeldObject(new Muur(muren[0], muren[1]));
-        }*/
+        }
 	}
 }
