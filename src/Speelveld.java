@@ -39,7 +39,7 @@ public class Speelveld extends JPanel {
 	 * @param richting is de kant waar de speler naar toe gaat, de speler kan naar het noorden, zuiden, oosten en westen
 	 */
 	public void lopen(int i, String richting) {
-		if(richting.equals("N")){
+		if(richting.equals("W")){
 			if(speler.getKolom() != 0){
 				vakjes[speler.getRij()][speler.getKolom()].setVeldObject(null);
 				speler.setKolom(i);
@@ -47,14 +47,14 @@ public class Speelveld extends JPanel {
 				updateVeldObjecten();
 			}
 		}
-		else if(richting.equals("Z")){
+		else if(richting.equals("O")){
 			if(speler.getKolom() != 9){
 				vakjes[speler.getRij()][speler.getKolom()].setVeldObject(null);
 				speler.setKolom(i);
 				vakjes[speler.getRij()][speler.getKolom()].setVeldObject(speler);
 				updateVeldObjecten();			}
 		}
-		else if(richting.equals("W")){
+		else if(richting.equals("N")){
 			if(speler.getRij() != 0){
 				vakjes[speler.getRij()][speler.getKolom()].setVeldObject(null);
 				speler.setRij(i);
@@ -63,13 +63,12 @@ public class Speelveld extends JPanel {
 			}
 
 		}
-		else if(richting.equals("O")){
+		else if(richting.equals("Z")){
 			if(speler.getRij() != 9){
 				vakjes[speler.getRij()][speler.getKolom()].setVeldObject(null);
 				speler.setRij(i);
 				vakjes[speler.getRij()][speler.getKolom()].setVeldObject(speler);
-				updateVeldObjecten();
-			}
+				updateVeldObjecten();			}
 		}
 	}
 
@@ -85,12 +84,13 @@ public class Speelveld extends JPanel {
 	 */
 	public void updateVeldObjecten() {
 
-		veldGrid.removeAll();
+		//veldGrid.removeAll();
 
+		veldGrid.removeAll();
 		//for loop om de objecten iconen op het veld te krijgen
 		for (Vakje[] vakVeld : vakjes) {
 			for (Vakje vak : vakVeld) {
-				if (vak.bevatObject()) {
+				if (vak.getVeldObject() == speler) {
 					veldGrid.add(vak.getVeldObject().getIcon());
 				} else {
 					veldGrid.add(vak.getIcon());
@@ -98,8 +98,8 @@ public class Speelveld extends JPanel {
 			}
 		}
 
-		revalidate();
-		repaint();
+		veldGrid.revalidate();
+		veldGrid.repaint();
 	}
 
 	/**
@@ -110,7 +110,7 @@ public class Speelveld extends JPanel {
 		speler = new Speler(0, 0);
 
 		//voeg de grid toe aan de jpanel
-		add(veldGrid, BorderLayout.CENTER);
+		add(veldGrid);
 
 		vakjes = new Vakje[this.level.veldGrootte.width][this.level.veldGrootte.height];
 
@@ -118,6 +118,7 @@ public class Speelveld extends JPanel {
 		for (int i = 0; i < this.level.veldGrootte.width; i++) {
 			for (int j = 0; j < this.level.veldGrootte.height; j++) {
 				vakjes[i][j] = new Vakje(i, j);
+				vakjes[i][j].setLabel(i,j);
 			}
 		}
 
