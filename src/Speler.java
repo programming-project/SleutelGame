@@ -2,7 +2,7 @@ import javax.swing.*;
 
 public class Speler extends VeldObject {
 
-	private Sleutel zak;
+	private Sleutel zak = null;
 
 	/**
 	 * Constructor van speler

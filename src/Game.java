@@ -6,6 +6,7 @@ import java.awt.event.KeyListener;
 public class Game extends JFrame implements KeyListener  {
 
 	Speelveld speelveld = new Speelveld();
+	JMenu reset, exit;
 
 	public Game() {
 		setTitle("SleutelGame");
@@ -14,6 +15,14 @@ public class Game extends JFrame implements KeyListener  {
 		setSize(new Dimension(500, 500));
 		speelveld.updateVeldObjecten();
 		add(speelveld);
+
+		JMenuBar mb=new JMenuBar();
+		reset=new JMenu("Reset");
+		exit=new JMenu("Exit");
+
+		mb.add(reset);
+		mb.add(exit);
+		setJMenuBar(mb);
 	}
 
 	public static void main(String[] args) {
