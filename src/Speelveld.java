@@ -95,9 +95,8 @@ public class Speelveld extends JPanel {
 	 */
 	public void updateVeldObjecten() {
 
-		//veldGrid.removeAll();
-
 		veldGrid.removeAll();
+
 		//for loop om de objecten iconen op het veld te krijgen
 		for (Vakje[] vakVeld : vakjes) {
 			for (Vakje vak : vakVeld) {
