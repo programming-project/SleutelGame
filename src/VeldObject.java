@@ -67,10 +67,7 @@ public abstract class VeldObject {
 
 	/**
 	 * Setter die zorgt voor dat een VeldObject een icoon heeft
-	 * @param label
-	 *
-	 *
-	 *
+	 * @param label icoon voor de VeldObject
 	 */
     public void setIcon(JLabel label) {
         this.label = label;

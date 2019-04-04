@@ -45,10 +45,7 @@ public class Vakje {
 
     /**
      * Methode die kijkt of het vakje een VeldObject bevat of niet
-     * @return is
-     *
-     *
-     *
+     * @return is als het vakje niet leeg is geeft het true
      */
     public boolean bevatObject() {
         return veldObject != null;

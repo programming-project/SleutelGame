@@ -69,8 +69,8 @@ public class Speelveld extends JPanel {
 	 */
 	public boolean checkVeldObject(int i, String richting){
 		if(richting.equals("W") || richting.equals("O")){
-		if(vakjes[speler.getRij()][(speler.getKolom()+i)].getVeldObject() == null){
-			return true;
+			if(vakjes[speler.getRij()][(speler.getKolom()+i)].getVeldObject() == null){
+				return true;
 		}else if(vakjes[speler.getRij()][(speler.getKolom()+i)].getVeldObject() instanceof Sleutel){
 			speler.setZak((Sleutel) vakjes[speler.getRij()][(speler.getKolom()+i)].getVeldObject());
 			return true;
@@ -85,7 +85,7 @@ public class Speelveld extends JPanel {
 				return true;
 			}else if(vakjes[speler.getRij()+i][(speler.getKolom())].getVeldObject() instanceof Barricade){
 				if(((Barricade) vakjes[speler.getRij()+i][(speler.getKolom())].getVeldObject()).checkSleutel(speler.getZak())){
-					//removeBarricade(vakjes[speler.getRij()+i][(speler.getKolom())]);
+					removeBarricade(vakjes[speler.getRij()+i][(speler.getKolom())].getVeldObject());
 					return true;
 				}else {
 					//error melding
@@ -149,10 +149,10 @@ public class Speelveld extends JPanel {
 		//zet de speler op een vakje
 		vakjes[speler.getRij()][speler.getKolom()].setVeldObject(speler);
 
+		//zet de finish op een vakje
         vakjes[level.finish.getRij()][level.finish.getKolom()].setVeldObject(finish);
 
 		//for loop om de objecten uit de array barricade te maken en te plaatsen op hun vakjes
-
 		for (int[] barricadeHonderd : this.level.getBarricadeHonderd()) {
 			vakjes[barricadeHonderd[0]][barricadeHonderd[1]].setVeldObject(new Barricade(100, barricadeHonderd[0], barricadeHonderd[1]));
 		}
