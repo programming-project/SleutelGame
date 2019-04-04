@@ -1,6 +1,6 @@
 import javax.swing.*;
 
-public class Barricade extends VeldObject {
+public class Barricade extends VeldObject{
 
 	private int sleutelNummer;
 
@@ -17,13 +17,11 @@ public class Barricade extends VeldObject {
 		}
 	}
 
-	public void checkSleutel(Sleutel sleutel) {
+	public boolean checkSleutel(Sleutel sleutel) {
 		if(sleutelNummer == sleutel.getSleutelNummer()){
-			remove();
+			return true;
+		}else{
+			return false;
 		}
-	}
-
-	public void remove(){
-
 	}
 }

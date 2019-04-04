@@ -83,12 +83,24 @@ public class Speelveld extends JPanel {
 			}else if(vakjes[speler.getRij()+i][(speler.getKolom())].getVeldObject() instanceof Sleutel){
 				speler.setZak((Sleutel) vakjes[speler.getRij()+i][(speler.getKolom())].getVeldObject());
 				return true;
+			}else if(vakjes[speler.getRij()+i][(speler.getKolom())].getVeldObject() instanceof Barricade){
+				if(((Barricade) vakjes[speler.getRij()+i][(speler.getKolom())].getVeldObject()).checkSleutel(speler.getZak())){
+					//removeBarricade(vakjes[speler.getRij()+i][(speler.getKolom())]);
+					return true;
+				}else {
+					//error melding
+					return false;
+				}
 			}else{
 				return false;
 			}
 		}else{
 			return false;
 		}
+	}
+
+	public void removeBarricade(VeldObject veldObject){
+		veldObject = null;
 	}
 
 	/**
