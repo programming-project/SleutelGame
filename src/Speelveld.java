@@ -40,27 +40,9 @@ public class Speelveld extends JPanel {
 	 * @param richting is de kant waar de speler naar toe gaat, de speler kan naar het noorden, zuiden, oosten en westen
 	 */
 	public void lopen(int i, String richting) {
-		if(richting.equals("W")){
-			if(speler.getKolom() != 0){
-				if(vakjes[speler.getRij()][(speler.getKolom()+i)].getVeldObject() == null){
-					vakjes[speler.getRij()][speler.getKolom()].setVeldObject(null);
-					speler.setKolom(i);
-					vakjes[speler.getRij()][speler.getKolom()].setVeldObject(speler);
-					updateVeldObjecten();
-				}
-				if(vakjes[speler.getRij()][(speler.getKolom()+i)].getVeldObject() instanceof Sleutel){
-					speler.setZak((Sleutel) vakjes[speler.getRij()][(speler.getKolom()+i)].getVeldObject());
-					vakjes[speler.getRij()][speler.getKolom()].setVeldObject(null);
-					speler.setKolom(i);
-					vakjes[speler.getRij()][speler.getKolom()].setVeldObject(speler);
-					System.out.println(speler.getZak().toString());
-					updateVeldObjecten();
-				}
-			}
-		}
-		else if(richting.equals("O")){
-			if(speler.getKolom() != 9){
-				if(vakjes[speler.getRij()][(speler.getKolom()+i)].getVeldObject() == null){
+		if(richting.equals("W") || richting.equals("O")){
+			if((richting.equals("W") && speler.getKolom() != 0) ||(richting.equals("O") && speler.getKolom() != 9)){
+				if(checkVeldObject(i, richting)){
 					vakjes[speler.getRij()][speler.getKolom()].setVeldObject(null);
 					speler.setKolom(i);
 					vakjes[speler.getRij()][speler.getKolom()].setVeldObject(speler);
@@ -68,9 +50,9 @@ public class Speelveld extends JPanel {
 				}
 			}
 		}
-		else if(richting.equals("N")){
-			if(speler.getRij() != 0){
-				if(vakjes[speler.getRij()+i][(speler.getKolom())].getVeldObject() == null){
+		else if(richting.equals("N")|| richting.equals("Z")){
+			if((richting.equals("N") && speler.getRij() != 0 )||(richting.equals("Z") && speler.getRij() != 9)){
+				if(checkVeldObject(i, richting)){
 					vakjes[speler.getRij()][speler.getKolom()].setVeldObject(null);
 					speler.setRij(i);
 					vakjes[speler.getRij()][speler.getKolom()].setVeldObject(speler);
@@ -79,23 +61,34 @@ public class Speelveld extends JPanel {
 			}
 
 		}
-		else if(richting.equals("Z")){
-			if(speler.getRij() != 9){
-				if(vakjes[speler.getRij()+i][(speler.getKolom())].getVeldObject() == null){
-					vakjes[speler.getRij()][speler.getKolom()].setVeldObject(null);
-					speler.setRij(i);
-					vakjes[speler.getRij()][speler.getKolom()].setVeldObject(speler);
-					updateVeldObjecten();
-				}
-			}
-		}
 	}
+
 
 	/**
 	 * Methode om het speelveld te updaten/refresh
 	 */
-	public void updateSpeeldveld() {
-
+	public boolean checkVeldObject(int i, String richting){
+		if(richting.equals("W") || richting.equals("O")){
+		if(vakjes[speler.getRij()][(speler.getKolom()+i)].getVeldObject() == null){
+			return true;
+		}else if(vakjes[speler.getRij()][(speler.getKolom()+i)].getVeldObject() instanceof Sleutel){
+			speler.setZak((Sleutel) vakjes[speler.getRij()][(speler.getKolom()+i)].getVeldObject());
+			return true;
+		}else{
+			return false;
+		}
+		}else if(richting.equals("N") || richting.equals("Z")){
+			if(vakjes[speler.getRij()+i][(speler.getKolom())].getVeldObject() == null){
+				return true;
+			}else if(vakjes[speler.getRij()+i][(speler.getKolom())].getVeldObject() instanceof Sleutel){
+				speler.setZak((Sleutel) vakjes[speler.getRij()+i][(speler.getKolom())].getVeldObject());
+				return true;
+			}else{
+				return false;
+			}
+		}else{
+			return false;
+		}
 	}
 
 	/**

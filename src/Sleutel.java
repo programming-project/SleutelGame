@@ -23,9 +23,4 @@ public class Sleutel extends VeldObject {
 		return sleutelNummer;
 	}
 
-	//controleert of het padvrij is
-	@Override
-	public boolean padVrij() {
-		return true;
-	}
 }
