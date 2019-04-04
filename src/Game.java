@@ -7,10 +7,10 @@ import java.awt.event.KeyListener;
 
 public class Game extends JFrame implements KeyListener  {
 
-	Speelveld speelveld = new Speelveld();
-	JMenu reset = new JMenu("Reset");
+	private Speelveld speelveld = new Speelveld();
+	private JMenu reset = new JMenu("Reset");
 
-	public Game() {
+	private Game() {
 		setTitle("SleutelGame");
 		setDefaultCloseOperation(Game.EXIT_ON_CLOSE);
 		setResizable(false);
