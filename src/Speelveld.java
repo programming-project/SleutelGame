@@ -31,23 +31,25 @@ public class Speelveld extends JPanel {
     }
 
     /**
-     * Methodie die de game laat afsluiten
+     * Getter die de speler teruggeeft
+     * @return geeft de speler terug
      */
-    public void aflsuiten() {
-    }
-
     public Speler getSpeler() {
         return speler;
     }
 
     /**
-     * Methode om het speelveld te updaten/refresh
+     * Getter die de vakjes teruggeeft
+     * @return geeft de vakjes terug
      */
-
     public Vakje[][] getVakjes() {
         return this.vakjes;
     }
 
+    /**
+     * Getter die de finish teruggeeft
+     * @return geeft de finish terug
+     */
     public Finish getFinish() {
         return finish;
     }
@@ -127,7 +129,6 @@ public class Speelveld extends JPanel {
         }
 
         //for loop om object muur op de vakjes te plaatsen
-
         for (int[] muren : this.level.getMuren()) {
             vakjes[muren[0]][muren[1]].setVeldObject(new Muur(muren[0], muren[1]));
         }

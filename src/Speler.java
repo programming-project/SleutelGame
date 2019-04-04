@@ -18,8 +18,7 @@ public class Speler extends VeldObject {
 
 	/**
 	 * Methode om te lopen zodat de speler kan bewegen op de speelveld
-	 *
-	 * @param i        is de afstand die de speler gaat afleggen
+	 * @param i is de afstand die de speler gaat afleggen
 	 * @param richting is de kant waar de speler naar toe gaat, de speler kan naar het noorden, zuiden, oosten en westen
 	 */
 	public void lopen(int i, String richting) {
@@ -68,7 +67,6 @@ public class Speler extends VeldObject {
 				return false;
 			}
 
-
 		} else if (richting.equals("N") || richting.equals("Z")) {
 			if (null == speelveld.getVakjes()[this.getRij() + i][(this.getKolom())].getVeldObject()) {
 				return true;
@@ -96,6 +94,11 @@ public class Speler extends VeldObject {
 		}
 	}
 
+	/**
+	 * methode om sleutel op te pakken
+	 * @param i is de afstand van de speler af
+	 * @param richting is de kant waar de speler naar toe kijkt, de speler kan naar het noorden, zuiden, oosten en westen
+	 */
 	public void sleutelPakken(int i, String richting){
 		if (richting.equals("W") || richting.equals("O")) {
 			this.setZak((Sleutel) speelveld.getVakjes()[this.getRij()][(this.getKolom() + i)].getVeldObject());
@@ -122,12 +125,10 @@ public class Speler extends VeldObject {
 	@Override
 	public void setRij(int rij) {
 		super.setRij(getRij() + rij);
-		System.out.println(super.getRij());
 	}
 
 	@Override
 	public void setKolom(int kolom) {
 		super.setKolom(getKolom() + kolom);
-		System.out.println(super.getKolom());
 	}
 }

@@ -43,7 +43,4 @@ public class Level {
 		return Muren;
 	}
 
-	public VeldObject getFinish() {
-		return finish;
-	}
 }

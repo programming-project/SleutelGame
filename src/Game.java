@@ -10,6 +10,9 @@ public class Game extends JFrame implements KeyListener  {
 	private Speelveld speelveld = new Speelveld();
 	private JMenu reset = new JMenu("Reset");
 
+	/**
+	 * Constructor voor game
+	 */
 	private Game() {
 		setTitle("SleutelGame");
 		setDefaultCloseOperation(Game.EXIT_ON_CLOSE);
@@ -29,19 +32,16 @@ public class Game extends JFrame implements KeyListener  {
 
 			@Override
 			public void menuDeselected(MenuEvent e) {
-
 			}
-
 			@Override
 			public void menuCanceled(MenuEvent e) {
-
 			}
-		});
+		}
+
+		);
 		mb.add(reset);
 		this.setJMenuBar(mb);
 	}
-
-
 
 	public static void main(String[] args) {
 		Game game = new Game();

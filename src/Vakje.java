@@ -51,9 +51,13 @@ public class Vakje {
         return veldObject != null;
     }
 
+    /**
+     * Setter voor de label te zetten
+     * @param i is positierij
+     * @param j is positiekolom
+     */
     public void setLabel(int i, int j){
         String s = "["+i+ ","+j+"]";
         label.setText(s);
     }
-
 }

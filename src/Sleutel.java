@@ -4,7 +4,12 @@ public class Sleutel extends VeldObject {
 
 	private int sleutelNummer;
 
-	//constructor voor sleutel
+	/**
+	 * Constructor voor Sleutel
+	 * @param sleutelNummer is de sleutelnummer voor sleutel
+	 * @param rij is positierij van sleutel
+	 * @param kolom is positiekolom van sleutel
+	 */
 	public Sleutel(int sleutelNummer, int rij, int kolom) {
 		super(rij , kolom);
 		this.sleutelNummer = sleutelNummer;
@@ -18,9 +23,11 @@ public class Sleutel extends VeldObject {
 		}
 	}
 
-	//returned sleutel waarde
+	/**
+	 * Getter voor de sleutelnummer
+	 * @return geeft de sleutelnummer van de sleutel terug
+	 */
 	public int getSleutelNummer() {
-		return sleutelNummer;
+		return this.sleutelNummer;
 	}
-
 }

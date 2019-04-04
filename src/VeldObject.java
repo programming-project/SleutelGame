@@ -72,6 +72,4 @@ public abstract class VeldObject {
     public void setIcon(JLabel label) {
         this.label = label;
     }
-
-
 }
