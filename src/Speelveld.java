@@ -26,6 +26,8 @@ public class Speelveld extends JPanel {
      * Methode die de game laat herstarten
      */
     public void reset() {
+        this.setLevel();
+        this.updateVeldObjecten();
     }
 
     /**
@@ -34,90 +36,21 @@ public class Speelveld extends JPanel {
     public void aflsuiten() {
     }
 
-    /**
-     * Methode om te lopen zodat de speler kan bewegen op de speelveld
-     *
-     * @param i        is de afstand die de speler gaat afleggen
-     * @param richting is de kant waar de speler naar toe gaat, de speler kan naar het noorden, zuiden, oosten en westen
-     */
-    public void lopen(int i, String richting) {
-        if (richting.equals("W") || richting.equals("O")) {
-            if ((richting.equals("W") && speler.getKolom() != 0) || (richting.equals("O") && speler.getKolom() != 9)) {
-                if (checkVeldObject(i, richting)) {
-                    vakjes[speler.getRij()][speler.getKolom()].setVeldObject(null);
-                    speler.setKolom(i);
-                    vakjes[speler.getRij()][speler.getKolom()].setVeldObject(speler);
-                    updateVeldObjecten();
-                }
-            }
-        } else if (richting.equals("N") || richting.equals("Z")) {
-            if ((richting.equals("N") && speler.getRij() != 0) || (richting.equals("Z") && speler.getRij() != 9)) {
-                if (checkVeldObject(i, richting)) {
-                    vakjes[speler.getRij()][speler.getKolom()].setVeldObject(null);
-                    speler.setRij(i);
-                    vakjes[speler.getRij()][speler.getKolom()].setVeldObject(speler);
-                    updateVeldObjecten();
-                }
-            }
-
-        }
+    public Speler getSpeler() {
+        return speler;
     }
-
 
     /**
      * Methode om het speelveld te updaten/refresh
      */
-    public boolean checkVeldObject(int i, String richting) {
-        if (richting.equals("W") || richting.equals("O")) {
-            if (vakjes[speler.getRij()][(speler.getKolom() + i)].getVeldObject() == null) {
-                return true;
-            } else if (vakjes[speler.getRij()][(speler.getKolom() + i)].getVeldObject() instanceof Sleutel) {
-                speler.setZak((Sleutel) vakjes[speler.getRij()][(speler.getKolom() + i)].getVeldObject());
-                return true;
-            } else if (vakjes[speler.getRij()][(speler.getKolom()+ i)].getVeldObject() instanceof Barricade && speler.getZak() != null) {
-                if (((Barricade) vakjes[speler.getRij()][(speler.getKolom()+i)].getVeldObject()).checkSleutel(speler.getZak())) {
-                    removeBarricade(vakjes[speler.getRij()][(speler.getKolom()+i)].getVeldObject());
-                    return true;
-                } else {
-                    JOptionPane.showMessageDialog(this, "Je sleutel past niet hehe xd!");
-                    return false;
-                }
-            } else if (vakjes[speler.getRij()][(speler.getKolom()+ i)].getVeldObject() instanceof Finish){
-            JOptionPane.showMessageDialog(this, "You win hehe xd!");
-            return true;
-        } else {
-                return false;
-            }
 
-
-        } else if (richting.equals("N") || richting.equals("Z")) {
-            if (vakjes[speler.getRij() + i][(speler.getKolom())].getVeldObject() == null) {
-                return true;
-            } else if (vakjes[speler.getRij() + i][(speler.getKolom())].getVeldObject() instanceof Sleutel) {
-                speler.setZak((Sleutel) vakjes[speler.getRij() + i][(speler.getKolom())].getVeldObject());
-                return true;
-            } else if (vakjes[speler.getRij() + i][(speler.getKolom())].getVeldObject() instanceof Barricade && speler.getZak() != null) {
-                if (((Barricade) vakjes[speler.getRij() + i][(speler.getKolom())].getVeldObject()).checkSleutel(speler.getZak())) {
-                    removeBarricade(vakjes[speler.getRij() + i][(speler.getKolom())].getVeldObject());
-                    return true;
-                } else {
-                    JOptionPane.showMessageDialog(this, "Je sleutel past niet hehe xd!");
-                    return false;
-                }
-            } else if (vakjes[speler.getRij() + i][(speler.getKolom())].getVeldObject() instanceof Finish){
-                JOptionPane.showMessageDialog(this, "You win hehe xd!");
-                return true;
-            }
-            else {
-                return false;
-            }
-        } else {
-            return false;
-        }
-    }
 
     public void removeBarricade(VeldObject veldObject) {
         veldObject = null;
+    }
+
+    public Vakje[][] getVakjes() {
+        return this.vakjes;
     }
 
     /**
@@ -147,7 +80,7 @@ public class Speelveld extends JPanel {
      */
     public void setLevel() {
         level = new Level();
-        speler = new Speler(0, 0);
+        speler = new Speler(0, 0, this);
         finish = new Finish(9, 9);
 
         //voeg de grid toe aan de jpanel

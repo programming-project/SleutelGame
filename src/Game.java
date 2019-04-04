@@ -1,4 +1,6 @@
 import javax.swing.*;
+import javax.swing.event.MenuEvent;
+import javax.swing.event.MenuListener;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -6,7 +8,7 @@ import java.awt.event.KeyListener;
 public class Game extends JFrame implements KeyListener  {
 
 	Speelveld speelveld = new Speelveld();
-	JMenu reset, exit;
+	JMenu reset = new JMenu("Reset");
 
 	public Game() {
 		setTitle("SleutelGame");
@@ -17,13 +19,29 @@ public class Game extends JFrame implements KeyListener  {
 		add(speelveld);
 
 		JMenuBar mb=new JMenuBar();
-		reset=new JMenu("Reset");
-		exit=new JMenu("Exit");
 
+		reset.addMenuListener(new MenuListener() {
+
+			@Override
+			public void menuSelected(MenuEvent e) {
+				speelveld.reset();
+			}
+
+			@Override
+			public void menuDeselected(MenuEvent e) {
+
+			}
+
+			@Override
+			public void menuCanceled(MenuEvent e) {
+
+			}
+		});
 		mb.add(reset);
-		mb.add(exit);
-		setJMenuBar(mb);
+		this.setJMenuBar(mb);
 	}
+
+
 
 	public static void main(String[] args) {
 		Game game = new Game();
@@ -48,19 +66,19 @@ public class Game extends JFrame implements KeyListener  {
 	@Override
 	public void keyPressed(KeyEvent e){
 		if (e.getKeyCode() == KeyEvent.VK_UP) {
-			speelveld.lopen(-1, "N");
+			speelveld.getSpeler().lopen(-1, "N");
 		}
 
 		if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-			speelveld.lopen(1,"Z");
+			speelveld.getSpeler().lopen(1,"Z");
 		}
 
 		if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-			speelveld.lopen(-1, "W");
+			speelveld.getSpeler().lopen(-1, "W");
 		}
 
 		if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-			speelveld.lopen(1, "O");
+			speelveld.getSpeler().lopen(1, "O");
 		}
 	}
 
