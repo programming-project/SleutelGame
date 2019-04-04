@@ -10,8 +10,4 @@ public class Finish extends VeldObject {
 	public void spelGewonnen() {
 	}
 
-	@Override
-	public boolean padVrij() {
-		return true;
-	}
 }

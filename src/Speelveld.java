@@ -48,6 +48,14 @@ public class Speelveld extends JPanel {
 					vakjes[speler.getRij()][speler.getKolom()].setVeldObject(speler);
 					updateVeldObjecten();
 				}
+				if(vakjes[speler.getRij()][(speler.getKolom()+i)].getVeldObject() instanceof Sleutel){
+					speler.setZak((Sleutel) vakjes[speler.getRij()][(speler.getKolom()+i)].getVeldObject());
+					vakjes[speler.getRij()][speler.getKolom()].setVeldObject(null);
+					speler.setKolom(i);
+					vakjes[speler.getRij()][speler.getKolom()].setVeldObject(speler);
+					System.out.println(speler.getZak().toString());
+					updateVeldObjecten();
+				}
 			}
 		}
 		else if(richting.equals("O")){

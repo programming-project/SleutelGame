@@ -76,5 +76,5 @@ public abstract class VeldObject {
         this.label = label;
     }
 
-	public abstract boolean padVrij();
+
 }

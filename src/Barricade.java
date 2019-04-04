@@ -26,9 +26,4 @@ public class Barricade extends VeldObject {
 	public void remove(){
 
 	}
-
-	@Override
-	public boolean padVrij() {
-		return false;
-	}
 }

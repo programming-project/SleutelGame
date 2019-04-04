@@ -14,10 +14,16 @@ public class Speler extends VeldObject {
 		super.setIcon(new JLabel(new ImageIcon("src/icons/steve.png")));
 	}
 
+	public void sleutelPakken(){
+		//
+	}
+
 	/**
 	 * Methode om sleutel op te pakken
 	 */
-	public void sleutelPakken() {
+	public void setZak(Sleutel sleutel) {
+		this.zak = sleutel;
+
 	}
 
 	/**
@@ -27,15 +33,6 @@ public class Speler extends VeldObject {
     public Sleutel getZak() {
         return zak;
     }
-
-	/**
-	 * Methode die kijkt of je door het VeldObject kan door heen lopen
-	 * @return is true als je wel door heen kan lopen, false als je niet door heen kan lopen
-	 */
-    @Override
-	public boolean padVrij() {
-		return false;
-	}
 
 	@Override
 	public void setRij(int rij) {
