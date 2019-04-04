@@ -17,6 +17,10 @@ public class Barricade extends VeldObject{
 		}
 	}
 
+	public static void removeBarricade(VeldObject veldObject){
+		veldObject = null;
+	}
+
 	public boolean checkSleutel(Sleutel sleutel) {
 		if(sleutelNummer == sleutel.getSleutelNummer()){
 			return true;

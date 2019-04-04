@@ -8,6 +8,8 @@ public class Finish extends VeldObject {
 	}
 
 	public void spelGewonnen() {
+		JOptionPane.showMessageDialog(null, "Eggs are not supposed to be green.");
+
 	}
 
 }

@@ -50,17 +50,19 @@ public class Speler extends VeldObject {
 			if (speelveld.getVakjes()[this.getRij()][(this.getKolom() + i)].getVeldObject() == null) {
 				return true;
 			} else if (speelveld.getVakjes()[this.getRij()][(this.getKolom() + i)].getVeldObject() instanceof Sleutel) {
-				this.setZak((Sleutel) speelveld.getVakjes()[this.getRij()][(this.getKolom() + i)].getVeldObject());
+				sleutelPakken(i, richting);
 				return true;
 			} else if (speelveld.getVakjes()[this.getRij()][(this.getKolom()+ i)].getVeldObject() instanceof Barricade && this.getZak() != null) {
 				if (((Barricade) speelveld.getVakjes()[this.getRij()][(this.getKolom()+i)].getVeldObject()).checkSleutel(this.getZak())) {
-					speelveld.removeBarricade(speelveld.getVakjes()[this.getRij()][(this.getKolom()+i)].getVeldObject());
+					Barricade.removeBarricade(speelveld.getVakjes()[this.getRij()][(this.getKolom()+i)].getVeldObject());
 					return true;
 				} else {
 					return false;
 				}
 			} else if (speelveld.getVakjes()[this.getRij()][(this.getKolom()+ i)].getVeldObject() instanceof Finish){
-				return true;
+				speelveld.reset();
+				speelveld.getFinish().spelGewonnen();
+				return false;
 			} else {
 				return false;
 			}
@@ -70,17 +72,19 @@ public class Speler extends VeldObject {
 			if (null == speelveld.getVakjes()[this.getRij() + i][(this.getKolom())].getVeldObject()) {
 				return true;
 			} else if (speelveld.getVakjes()[this.getRij() + i][(this.getKolom())].getVeldObject() instanceof Sleutel) {
-				this.setZak((Sleutel) speelveld.getVakjes()[this.getRij() + i][(this.getKolom())].getVeldObject());
+				sleutelPakken(i, richting);
 				return true;
 			} else if (speelveld.getVakjes()[this.getRij() + i][(this.getKolom())].getVeldObject() instanceof Barricade && this.getZak() != null) {
 				if (((Barricade) speelveld.getVakjes()[this.getRij() + i][(this.getKolom())].getVeldObject()).checkSleutel(this.getZak())) {
-					speelveld.removeBarricade(speelveld.getVakjes()[this.getRij() + i][(this.getKolom())].getVeldObject());
+					Barricade.removeBarricade(speelveld.getVakjes()[this.getRij()+i][(this.getKolom())].getVeldObject());
 					return true;
 				} else {
 					return false;
 				}
 			} else if (speelveld.getVakjes()[this.getRij() + i][(this.getKolom())].getVeldObject() instanceof Finish){
-				return true;
+				speelveld.reset();
+				speelveld.getFinish().spelGewonnen();
+				return false;
 			}
 			else {
 				return false;
@@ -90,8 +94,12 @@ public class Speler extends VeldObject {
 		}
 	}
 
-	public void sleutelPakken(){
-		//
+	public void sleutelPakken(int i, String richting){
+		if (richting.equals("W") || richting.equals("O")) {
+			this.setZak((Sleutel) speelveld.getVakjes()[this.getRij()][(this.getKolom() + i)].getVeldObject());
+		}else if(richting.equals("N") || richting.equals("Z")){
+			this.setZak((Sleutel) speelveld.getVakjes()[this.getRij()+ i][(this.getKolom())].getVeldObject());
+		}
 	}
 
 	/**

@@ -44,13 +44,12 @@ public class Speelveld extends JPanel {
      * Methode om het speelveld te updaten/refresh
      */
 
-
-    public void removeBarricade(VeldObject veldObject) {
-        veldObject = null;
-    }
-
     public Vakje[][] getVakjes() {
         return this.vakjes;
+    }
+
+    public Finish getFinish() {
+        return finish;
     }
 
     /**
