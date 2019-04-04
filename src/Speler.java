@@ -57,6 +57,7 @@ public class Speler extends VeldObject {
 					Barricade.removeBarricade(speelveld.getVakjes()[this.getRij()][(this.getKolom()+i)].getVeldObject());
 					return true;
 				} else {
+					JOptionPane.showMessageDialog(null,"Je hebt niet de juiste sleutel om deze barricade te openen!");
 					return false;
 				}
 			} else if (speelveld.getVakjes()[this.getRij()][(this.getKolom()+ i)].getVeldObject() instanceof Finish){
@@ -79,6 +80,7 @@ public class Speler extends VeldObject {
 					Barricade.removeBarricade(speelveld.getVakjes()[this.getRij()+i][(this.getKolom())].getVeldObject());
 					return true;
 				} else {
+					JOptionPane.showMessageDialog(null,"Je hebt niet de juiste sleutel om deze barricade te openen!");
 					return false;
 				}
 			} else if (speelveld.getVakjes()[this.getRij() + i][(this.getKolom())].getVeldObject() instanceof Finish){
